@@ -10,7 +10,16 @@ import reducer from './reducers/index';
 
 const store = createStore(
   reducer,
-  {},
+  {
+    player: {
+      name: 'scott',
+      strength: 10,
+    },
+    monster: {
+      name: 'baddy',
+      health: 7,
+    }
+  },
   applyMiddleware(thunk)
 );
 
