@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+      "file_exclude_patterns": ["*orig", "*.log", "*.zip"],
+      "folder_exclude_patterns": ["tmp", "node_modules", "build", "dist", "staging", "beta", "prod", "beast"]
+		}
+	]
+}
