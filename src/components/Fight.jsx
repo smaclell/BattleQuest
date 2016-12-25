@@ -1,6 +1,7 @@
 import React from 'react';
 import Monster from './Monster';
 import Player from './Player';
+import './fight.css';
 
 const Fight = ({monster, player}) => (
   <div className='fight'>

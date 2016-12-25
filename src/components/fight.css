@@ -1,0 +1,8 @@
+.fight {
+  display: flex;
+  flex-direction: row;
+}
+
+.fight > div {
+  flex: 1;
+}
