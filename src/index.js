@@ -8,20 +8,15 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers/index';
 
+import * as game from './actions/game';
+
 const store = createStore(
   reducer,
-  {
-    player: {
-      name: 'scott',
-      strength: 10,
-    },
-    monster: {
-      name: 'baddy',
-      health: 7,
-    }
-  },
+  {},
   applyMiddleware(thunk)
 );
+
+store.dispatch(game.start());
 
 ReactDOM.render(
   <Provider store={store}>
