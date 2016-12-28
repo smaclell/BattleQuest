@@ -1,18 +1,31 @@
 import * as actions from '../actions/player';
+import experience from './experience';
 
-export default function player(state = null, action) {
+function actual(state = null, action) {
   if (action.type === actions.CREATE) {
-    action.settings.experience = action.settings.experience || 0;
-    action.settings.level = action.settings.level || 1;
     return action.settings;
   }
 
-  if (action.type === actions.KILLED) {
-    return {
-      ...state,
-      experience: (state.experience || 0) + 10,
-    };
+  return state;
+}
+
+export default function player(state, action) {
+  let result = actual(state, action);
+  if (!result) {
+    return result;
   }
 
-  return state;
+  const exp = experience(result.experience, action);
+  if (exp !== result.experience) {
+    if (result === state) {
+      result = {
+        ...state,
+        experience: exp,
+      };
+    } else {
+      result.experience = exp;
+    }
+  }
+
+  return result;
 }

@@ -1,4 +1,5 @@
 export const CREATE = 'CREATE_PLAYER';
+export const LEVEL_UP = 'LEVEL_UP_PLAYER';
 export const KILLED = 'KILL_MONSTER';
 
 export function create(settings) {
@@ -15,8 +16,19 @@ export function create(settings) {
 }
 
 export function killed(monster) {
-  return {
-    type: KILLED,
-    monster,
+  return (dispatch, getState) => {
+    dispatch({
+      type: KILLED,
+      monster,
+    });
+
+    const {player} = getState();
+    const {experience} = player;
+
+    if (experience.current >= experience.next) {
+      dispatch({
+        type: LEVEL_UP,
+      });
+    }
   };
 }

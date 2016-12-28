@@ -1,10 +1,12 @@
 import React from 'react';
 import Stats from './Stats';
+import Experience from './Experience';
 
 const Player = props => (
   <div className="player">
     <h2>{props.name}</h2>
-    <Stats {...props} />
+    <Experience {...props.experience} />
+    <Stats {...props} exclude={['name', 'experience']} />
   </div>
 );
 

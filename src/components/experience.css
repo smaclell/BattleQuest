@@ -1,0 +1,31 @@
+.experience {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience > div {
+  flex: 1;
+}
+
+.experience .level {
+  font-weight: bold;
+}
+
+.experience .progress {
+  height: 25px;
+  background-color: grey;
+  position: relative;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.experience .progress .amount {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background-color: #f1a165;
+  background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
+}
