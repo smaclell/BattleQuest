@@ -11,6 +11,8 @@
   font-weight: bold;
 }
 
+/* From: https://css-tricks.com/css3-progress-bars/ */
+
 .experience .progress {
   height: 25px;
   background-color: grey;
@@ -20,7 +22,7 @@
 }
 
 .experience .progress .amount {
-  display: block;
+  display: block; /* this is the secret sauce */
   height: 100%;
   overflow: hidden;
 
