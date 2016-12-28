@@ -14,19 +14,22 @@
 /* From: https://css-tricks.com/css3-progress-bars/ */
 
 .experience .progress {
+  box-sizing: border-box;
   height: 25px;
-  background-color: grey;
+  background-color: #555;
   position: relative;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 25px;
+  padding: 4px;
 }
 
 .experience .progress .amount {
+  box-sizing: border-box;
   display: block; /* this is the secret sauce */
   height: 100%;
   overflow: hidden;
 
-  border-radius: 10px;
+  border-radius: 25px;
 
   background-color: #f1a165;
   background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
