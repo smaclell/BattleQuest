@@ -1,4 +1,5 @@
 export const CREATE = 'CREATE_PLAYER';
+export const KILLED = 'KILL_MONSTER';
 
 export function create(settings) {
   const required = ['name', 'strength'];
@@ -10,5 +11,12 @@ export function create(settings) {
   return {
     type: CREATE,
     settings,
+  };
+}
+
+export function killed(monster) {
+  return {
+    type: KILLED,
+    monster,
   };
 }

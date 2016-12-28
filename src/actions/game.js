@@ -39,6 +39,7 @@ export function start() {
         const {monster, player} = getState();
         if (monster.health <= 0) {
           accumulator = 0;
+          dispatch(p.killed(monster));
           createMonster();
           break;
         }
