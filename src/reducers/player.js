@@ -6,6 +6,33 @@ function actual(state = null, action) {
     return action.settings;
   }
 
+  if (action.type === actions.LEVEL_UP) {
+    let {strength, vitality, intelligence, speed} = state;
+
+    vitality += 2;
+    if (strength > intelligence && strength > speed) {
+      strength += 3;
+      intelligence++;
+      speed++;
+    } else if (intelligence > strength && intelligence > speed) {
+      intelligence += 3;
+      speed++;
+      strength++;
+    } else if (speed > strength && speed > intelligence) {
+      speed += 3;
+      intelligence++;
+      strength++;
+    }
+
+    return {
+      ...state,
+      strength,
+      vitality,
+      intelligence,
+      speed,
+    };
+  }
+
   return state;
 }
 

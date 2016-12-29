@@ -3,7 +3,7 @@ export const LEVEL_UP = 'LEVEL_UP_PLAYER';
 export const KILLED = 'KILL_MONSTER';
 
 export function create(settings) {
-  const required = ['name', 'strength'];
+  const required = ['name', 'strength', 'intelligence', 'vitality', 'speed'];
   const missing = required.filter(r => typeof(settings[r]) === 'undefined').join(', ');
   if (missing !== '') {
     throw Error(`Missing the following required settings ${missing}`);

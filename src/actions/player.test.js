@@ -3,6 +3,9 @@ import * as actions from './player';
 const valid = {
   name: 'tony stark',
   strength: 10,
+  vitality: 1,
+  intelligence: 1,
+  speed: 1,
 };
 
 it('explodes when required settings are missing', () => {

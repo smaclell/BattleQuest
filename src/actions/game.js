@@ -10,7 +10,13 @@ const names = [
 
 export function start() {
   return (dispatch, getState) => {
-    dispatch(p.create({name: 'scott', strength: 1}));
+    dispatch(p.create({
+      name: 'scott',
+      strength: 3,
+      intelligence: 1,
+      speed: 1,
+      vitality: 1,
+    }));
 
     function createMonster() {
       const name = names[i++];
