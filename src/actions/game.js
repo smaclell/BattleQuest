@@ -6,10 +6,10 @@ export function start() {
   return (dispatch, getState) => {
     dispatch(p.create({
       name: 'scott',
-      strength: 3,
-      intelligence: 1,
-      speed: 1,
-      vitality: 1,
+      strength: 2,
+      intelligence: 2,
+      speed: 3,
+      vitality: 2,
     }));
 
     function createMonster() {
@@ -22,19 +22,24 @@ export function start() {
     let accumulator;
     let lastTimestamp = -1;
     const loop = timestamp => {
+      window.requestAnimationFrame(loop);
       if (lastTimestamp < 0) {
         accumulator = 0;
         lastTimestamp = timestamp;
-        window.requestAnimationFrame(loop);
         return;
       }
 
-      accumulator += timestamp - lastTimestamp;
+      const {player} = getState();
+
+      // Treat the accumulator like a duty cycle based on the players speed
+      const delta = timestamp - lastTimestamp;
+      accumulator += delta * 0.25;
+      accumulator += delta * (1 - Math.exp(-player.speed / 25.0));
       lastTimestamp = timestamp;
 
-      const wait = 500;
+      const wait = 1000;
       for (;accumulator > wait; accumulator -= wait) {
-        const {monster, player} = getState();
+        const {monster} = getState();
         if (monster.health <= 0) {
           accumulator = 0;
           dispatch(p.killed(monster));
@@ -44,14 +49,12 @@ export function start() {
 
         const normal = () => Math.floor((random.next() + 0.25) * player.strength);
         const magic = () => random.between(1, 5) * player.intelligence;
-        const damage = random.between(0,5) === 1 ? magic() : normal();
+        const damage = random.between(0,9) === 1 ? magic() : normal();
 
         dispatch(m.attack({
           damage,
         }));
       }
-
-      window.requestAnimationFrame(loop);
     };
 
     window.requestAnimationFrame(loop);
