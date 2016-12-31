@@ -2,7 +2,7 @@
   "name": "BattleQuest",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://smaclellan.com/BattleQuest",
+  "homepage": "http://smaclellan.com/BattleQuest/build/",
   "devDependencies": {
     "react-scripts": "0.8.4"
   },
