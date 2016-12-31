@@ -4,10 +4,12 @@ const list = [
   {
     name: 'Vampire',
     health: ({level}) => random.between(1.5 * level, 4.5 * level),
+    level: 5,
   },
   {
     name: 'Zombie',
     health: ({level}) => 10 + random.between(2 * level, 2.5 * level),
+    level: 2,
   },
   {
     name: 'Ghost',
@@ -16,6 +18,7 @@ const list = [
   {
     name: 'Werewolf',
     health: ({level}) => 15 + random.between(2 * level, 3 * level),
+    level: 3,
   },
   {
     name: 'Gnome',
@@ -23,11 +26,13 @@ const list = [
   },
   {
     name: 'Troll',
-    health: ({level, strength}) => 3 * strength + level * random.between(1, 10),
+    health: ({level, strength}) => 3 * strength + level * random.between(level / 2, level / 2 + 10),
+    level: 15,
   },
   {
     name: 'Ogre',
     health: ({level}) => 12 + random.between(level, 1.2 * level),
+    level: 10,
   },
   {
     name: 'Dragon',
@@ -42,6 +47,7 @@ const list = [
   {
     name: 'Harpy',
     health: ({level}) => 10 + random.between(level, 1.2 * level),
+    level: 8,
   },
 ];
 
