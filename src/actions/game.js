@@ -1,5 +1,6 @@
 import * as m from './monster';
 import * as p from './player';
+import random from '../data/random';
 
 export function start() {
   return (dispatch, getState) => {
@@ -41,8 +42,12 @@ export function start() {
           break;
         }
 
+        const normal = () => Math.floor((random.next() + 0.25) * player.strength);
+        const magic = () => random.between(1, 5) * player.intelligence;
+        const damage = random.between(0,5) === 1 ? magic() : normal();
+
         dispatch(m.attack({
-          damage: player.strength,
+          damage,
         }));
       }
 
