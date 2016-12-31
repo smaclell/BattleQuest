@@ -7,13 +7,16 @@ it('defaults to null', () => {
 
 describe('create', () => {
   it('sets the up a basic monster', () => {
-    const action = actions.create({name: 'dave'});
+    const action = actions.create({
+      level: 1,
+      strength: 1,
+      intelligence: 1,
+    });
+
     const result = reducer(undefined, action);
 
-    expect(result).toEqual({
-      name: 'dave',
-      health: 10,
-    })
+    expect(result.name).toBeDefined();
+    expect(result.health).toBeDefined();
   });
 });
 

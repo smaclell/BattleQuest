@@ -1,13 +1,6 @@
 import * as m from './monster';
 import * as p from './player';
 
-let i = 0;
-const names = [
-  'larry',
-  'moe',
-  'curly',
-];
-
 export function start() {
   return (dispatch, getState) => {
     dispatch(p.create({
@@ -19,10 +12,8 @@ export function start() {
     }));
 
     function createMonster() {
-      const name = names[i++];
-      i %= names.length;
-
-      dispatch(m.create({name}));
+      const {player} = getState();
+      dispatch(m.create({...player.experience, ...player}));
     };
 
     createMonster();

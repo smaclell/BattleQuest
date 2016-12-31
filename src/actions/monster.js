@@ -1,10 +1,10 @@
 export const CREATE = 'CREATE_MONSTER';
 export const ATTACK = 'ATTACK_MONSTER';
 
-export function create({name}) {
+export function create(stats) {
   return {
     type: CREATE,
-    name,
+    stats,
   };
 }
 
